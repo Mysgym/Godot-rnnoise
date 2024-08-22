@@ -6,10 +6,6 @@ var capture = AudioServer.get_bus_effect(AudioServer.get_bus_index("Micin"),0) a
 #create denoiser object
 @onready var denoiser : AudioDenoiser = AudioDenoiser.new()
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	while(capture.can_get_buffer(denoiser.get_frame_size())):
