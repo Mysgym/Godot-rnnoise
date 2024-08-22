@@ -6,7 +6,7 @@ This is a godot extension based on the [rnnoise project](https://gitlab.xiph.org
 
 This project is built using Scons, and requires an [rnnoise](https://gitlab.xiph.org/xiph/rnnoise) static library. A precompiled library for linux is provided in the lib/bin folder.
 
-Although this project has only been tested on linux, it should work on windows and macos provided an rnnoise binary and minor adjustments to the SConstruct file.
+Although this project has only been tested on linux, it should work on windows and macos provided an rnnoise binary and minor adjustments to the SConstruct file.  
 Windows and macOS support is currently a work in progress, I encourage anyone attempting to compile for those OS to report any encountered issue and create pull requests for functional builds.
 
   1 - Clone this repo and the godot-cpp submodule  
