@@ -16,7 +16,8 @@ This project is built using Scons, and requires an [rnnoise](https://gitlab.xiph
   scons
   ```
 
-  3 - Run the demo project or add the extension to your own project by copying the content of the demo/addons folder to your project's addons folder.  
+  3 - Run the demo project using godot.  
+  Alternatively, add the extension to your own project by copying the content of the demo/addons folder to your project's addons folder.  
 
 Although this project has only been tested on linux, it should work on windows and macos provided an rnnoise binary and minor adjustments to the SConstruct file.  
 Windows and macOS support is currently a work in progress, I encourage anyone attempting to compile for those OS to report any encountered issue and create pull requests for functional builds.
