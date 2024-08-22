@@ -65,4 +65,8 @@ This extension adds a "Denoiser" object to godot, which itself implements the fo
 
 This project is being actively maintained, any reported issue and contributions are greatly appreciated.
 
-Windows and macOS users are encouraged to attempt compilation and share their work as I personally lack easy access to those OS.
+Windows and macOS users are encouraged to attempt compilation and share their work as I personally lack easy access to those OS.  
+
+## License
+
+this project is MIT licensed, it uses [rnnoise](https://gitlab.xiph.org/xiph/rnnoise) which is under the BSD 3-Clause license.
