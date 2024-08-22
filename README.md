@@ -8,7 +8,7 @@ This project is built using Scons, and requires an [rnnoise](https://gitlab.xiph
 
   1 - Clone this repo and the godot-cpp submodule  
   ```
-  git clone https://github.com/Mysgym/Godot-rnnoise && cd Godot-rnnoise
+  git clone --recurse-submodules https://github.com/Mysgym/Godot-rnnoise && cd Godot-rnnoise
   ```
 
   2 - Build using scons  
