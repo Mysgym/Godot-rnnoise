@@ -25,7 +25,7 @@ else:
     env.Append(LIBS=['librnnoise']);
     #env.Append(INCLUDE=['inc']);
     library = env.SharedLibrary(
-        "demo/addons/Godot-rnnoise/libgodotrnnoise{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
+        "addons/Godot-rnnoise/libgodotrnnoise{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
         source=sources,
     )
 
