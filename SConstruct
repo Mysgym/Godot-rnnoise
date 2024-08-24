@@ -21,7 +21,7 @@ buildpath = env["buildpath"]
 # - LINKFLAGS are for linking flags
 
 # tweak this if you want to use different folders, or more folders, to store your source code in.
-env.Append(CPPPATH=["src/"])
+env.Append(CPPPATH=[rootpath+"/src/"])
 env.Append(CCFLAGS=["-I"+rootpath+"/inc","-I"+rootpath+"lib/inc"])
 
 sources = Glob("src/*.cpp")
@@ -30,9 +30,8 @@ sources = Glob("src/*.cpp")
 if env["platform"] != "linux":
     print("ERROR : This project only supports linux, yet.")
 else:
-    env.Append(CPPPATH=['/usr/include/opus'])
-    env.Append(LIBPATH=['/usr/lib'])
-    env.Append(LIBS=['libopus'])
+    env.Append(LIBPATH=[rootpath+"lib/bin/linux"])
+    env.Append(LIBS=['librnnoise'])
     library = env.SharedLibrary(
         "addons/Godot-rnnoise/libgodotrnnoise{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
         source=sources,
