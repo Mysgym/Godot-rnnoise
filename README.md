@@ -26,7 +26,7 @@ Windows and macOS support is currently a work in progress, I encourage anyone at
 ### Demo
 
 ### Methods detail
-This extension adds a "Denoiser" object to godot, which itself implements the following methods :
+This extension adds an "AudioDenoiser" object to godot, which itself implements the following methods :
 
 | Method definition | Method description |
 | ------------------|--------------------|

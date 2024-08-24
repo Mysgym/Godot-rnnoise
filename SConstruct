@@ -30,7 +30,7 @@ sources = Glob("src/*.cpp")
 if env["platform"] != "linux":
     print("ERROR : This project only supports linux, yet.")
 else:
-    env.Append(LIBPATH=[rootpath+"lib/bin/linux"])
+    env.Append(LIBPATH=[rootpath+"/lib/bin/linux"])
     env.Append(LIBS=['librnnoise'])
     library = env.SharedLibrary(
         "addons/Godot-rnnoise/libgodotrnnoise{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
