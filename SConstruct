@@ -2,8 +2,18 @@
 import os
 import sys
 
-env = SConscript("godot-cpp/SConstruct")
+try:
+    Import("env")
+except Exception:
+    env = Environment()
+    env["gdcpppath"]="godot-cpp"
+    env["rootpath"]="."
+    env["buildpath"] = ""
 
+rootpath = env["rootpath"]
+buildpath = env["buildpath"]
+
+env = SConscript(env["gdcpppath"] + "/SConstruct")
 # For reference:
 # - CCFLAGS are compilation flags shared between C and C++
 # - CFLAGS are for C-specific compilation flags
@@ -14,19 +24,23 @@ env = SConscript("godot-cpp/SConstruct")
 
 # tweak this if you want to use different folders, or more folders, to store your source code in.
 env.Append(CPPPATH=["src/"])
-env.Append(CPPPATH=["-Iinc","-Ilib/inc"])
+env.Append(CCFLAGS=["-I"+rootpath+"/inc","-I"+rootpath+"lib/inc"])
+
 sources = Glob("src/*.cpp")
 
 
 if env["platform"] != "linux":
     print("ERROR : This project only supports linux, yet.")
 else:
-    env.Append(LIBPATH=['lib/bin/linux']);
-    env.Append(LIBS=['librnnoise']);
-    #env.Append(INCLUDE=['inc']);
+    env.Append(CPPPATH=['/usr/include/opus'])
+    env.Append(LIBPATH=['/usr/lib'])
+    env.Append(LIBS=['libopus'])
     library = env.SharedLibrary(
         "addons/Godot-rnnoise/libgodotrnnoise{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
         source=sources,
     )
+
+    if(buildpath != ""):
+        os.system("cp addons/Godot-rnnoise " + buildpath + "/ -r")
 
 Default(library)
