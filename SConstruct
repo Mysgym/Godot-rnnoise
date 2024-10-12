@@ -27,8 +27,19 @@ env.Append(CCFLAGS=["-I"+rootpath+"/inc","-I"+rootpath+"lib/inc"])
 sources = Glob("src/*.cpp")
 
 
-if env["platform"] != "linux":
-    print("ERROR : This project only supports linux, yet.")
+if env["platform"] == "macos":
+    print("ERROR : This project does not support macos, yet") 
+if env["platform"] == "windows":
+    print("INFO : Compiling for windows, unsure if this works")
+    env.Tool('mingw')
+    env.Append(CPPPATH=['#lib/inc'])
+    env.Append(CXXFLAGS=['-fPIC'])
+    env.Append(LIBPATH=['#lib/bin/windows'])
+    env.Append(LIBS=['rnnoise'])
+    library = env.SharedLibrary(
+        "addons/Godot-audio-resampler/libgodotaudioresampler_windows_{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
+        source=sources,
+        )
 else:
     env.Append(LIBPATH=[rootpath+"/lib/bin/linux"])
     env.Append(LIBS=['librnnoise'])

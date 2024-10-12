@@ -30,7 +30,7 @@ void AudioDenoiser::map_to_1(float* input, int size){
 }
 
 PackedFloat32Array AudioDenoiser::process_frame(PackedFloat32Array frame){
-	if(frame.size() != get_frame_size()){
+	if(frame.size() < get_frame_size()){
 		UtilityFunctions::printerr("GODOT RNNOISE ERROR : Frame size is : ", frame.size(), ", expected : ", get_frame_size());
 		return frame;
 	}
