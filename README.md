@@ -1,7 +1,10 @@
 # Godot-rnnoise
 
-This is a godot extension based on the [rnnoise project](https://gitlab.xiph.org/xiph/rnnoise) allowing for real-time processing of voice recordings, removing background noises.
-<br>
+This is a godot extension based on the [rnnoise project](https://gitlab.xiph.org/xiph/rnnoise) allowing for real-time processing of voice recordings, removing background noises.  
+
+It is part of a collection of tools aiming to provide modular audio processing for quality VOIP within godot.
+Check out the other tools and the demo here : https://github.com/Mysgym/mysVOIPtools-godot4-demo
+
 ## Building
 
 This project is built using Scons, and requires an [rnnoise](https://gitlab.xiph.org/xiph/rnnoise) static library. A precompiled library for linux is provided in the lib/bin folder.
@@ -12,6 +15,8 @@ This project is built using Scons, and requires an [rnnoise](https://gitlab.xiph
   ```
 
   2 - Build using scons  
+  (Godot-cpp sometimes doesn't compile correctly, try running the command again if you get a missing file) 
+  
   ```
   scons
   ```
@@ -24,6 +29,25 @@ Windows and macOS support is currently a work in progress, I encourage anyone at
 ## Usage
 
 ### Demo
+
+A demo incorporating this extension in a VOIP setting is available here : https://github.com/Mysgym/mysVOIPtools-godot4-demo
+
+Here is the relevant code :
+
+```gdscript
+
+# --- Create objects
+@onready var denoiser := AudioDenoiser.new()
+
+
+func denoise(frame : PackedVector2Array) -> PackedVector2Array:
+  #convert to mono, only format supported by rnnoise. Mode=2 averages left and right signal into one
+	var mono := denoiser.stereo_to_mono(frame, 2)
+	#denoise the mono signal
+	mono = denoiser.process_frame(mono)
+	#back to stereo
+	return denoiser.mono_to_stereo(mono,mono)
+```
 
 ### Methods detail
 This extension adds an "AudioDenoiser" object to godot, which itself implements the following methods :
