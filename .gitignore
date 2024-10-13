@@ -1,4 +1,6 @@
 addons/Godot-rnnoise/*.so
+addons/Godot-rnnoise/*.dll
+addons/Godot-rnnoise/*.a
 *.os
 tags
 *.dblite
