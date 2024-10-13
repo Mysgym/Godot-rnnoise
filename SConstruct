@@ -37,7 +37,7 @@ if env["platform"] == "windows":
     env.Append(LIBPATH=['#lib/bin/windows'])
     env.Append(LIBS=['rnnoise'])
     library = env.SharedLibrary(
-        "addons/Godot-audio-resampler/libgodotaudioresampler_windows_{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
+        "addons/Godot-rnnoise/libgodotrnnoise{}{}".format(env["suffix"], env["SHLIBSUFFIX"]),
         source=sources,
         )
 else:

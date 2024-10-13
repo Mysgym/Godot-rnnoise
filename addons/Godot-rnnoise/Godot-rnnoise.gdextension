@@ -7,3 +7,4 @@ reloadable = true
 [libraries]
 
 linux.debug.x86_64 = "res://addons/Godot-rnnoise/libgodotrnnoise.linux.template_debug.x86_64.so"
+windows.debug.x86_64 = "res://addons/Godot-rnnoise/libgodotrnnoise.windows.template_debug.x86_64.so"
