@@ -48,7 +48,7 @@ else:
         source=sources,
     )
 
-    if(buildpath != ""):
-        os.system("cp addons/Godot-rnnoise " + buildpath + "/ -r")
+if(buildpath != ""):
+    os.system("cp addons/Godot-rnnoise " + buildpath + "/ -r")
 
 Default(library)
